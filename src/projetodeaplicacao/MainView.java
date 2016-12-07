@@ -33,6 +33,7 @@ public class MainView extends javax.swing.JFrame {
     SacadoAvalistaView SacadoAvalistaView = new SacadoAvalistaView();
     SacadoView SacadoView = new SacadoView();
     TituloView TituloView = new TituloView();
+    BoletoView BoletoView = new BoletoView();
     
     
     
@@ -118,6 +119,11 @@ public class MainView extends javax.swing.JFrame {
         });
 
         jToggleButton5.setText("Boleto");
+        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton5ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Gerar boleto");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -188,8 +194,8 @@ public class MainView extends javax.swing.JFrame {
          
         CedenteView.setVisible(true); 
         CedenteView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        
-        System.out.println(CedenteView.NomeCedente);
+        CedenteView.setIconImage(new ImageIcon(getClass().getResource("Icon.png")).getImage());
+
 
        
     }//GEN-LAST:event_CedenteViewBotaoActionPerformed
@@ -198,6 +204,7 @@ public class MainView extends javax.swing.JFrame {
        
          ContaBancariaView.setVisible(true);
          ContaBancariaView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+         ContaBancariaView.setIconImage(new ImageIcon(getClass().getResource("Icon.png")).getImage());
 
         
     }//GEN-LAST:event_ContaBancariaBotaoActionPerformed
@@ -207,6 +214,7 @@ public class MainView extends javax.swing.JFrame {
         
         SacadoAvalistaView.setVisible(true);
         SacadoAvalistaView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        SacadoAvalistaView.setIconImage(new ImageIcon(getClass().getResource("Icon.png")).getImage());
         
         
         
@@ -216,6 +224,7 @@ public class MainView extends javax.swing.JFrame {
         
         TituloView.setVisible(true);
         TituloView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        TituloView.setIconImage(new ImageIcon(getClass().getResource("Icon.png")).getImage());
         
     }//GEN-LAST:event_TituloActionPerformed
 
@@ -223,6 +232,7 @@ public class MainView extends javax.swing.JFrame {
         
         SacadoView.setVisible(true);
         SacadoView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        SacadoView.setIconImage(new ImageIcon(getClass().getResource("Icon.png")).getImage());
     }//GEN-LAST:event_SacadoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -453,18 +463,16 @@ public class MainView extends javax.swing.JFrame {
         
         Boleto boleto = new Boleto(titulo);
                 
-        boleto.setLocalPagamento("Pagável preferencialmente na Rede X ou em " +
-                "qualquer Banco até o Vencimento.");
-        boleto.setInstrucaoAoSacado("Senhor sacado, sabemos sim que o valor " +
-                "cobrado não é o esperado, aproveite o DESCONTÃO!");
-        boleto.setInstrucao1("PARA PAGAMENTO 1 até Hoje não cobrar nada!");
-        boleto.setInstrucao2("PARA PAGAMENTO 2 até Amanhã Não cobre!");
-        boleto.setInstrucao3("PARA PAGAMENTO 3 até Depois de amanhã, OK, não cobre.");
-        boleto.setInstrucao4("PARA PAGAMENTO 4 até 04/xx/xxxx de 4 dias atrás COBRAR O VALOR DE: R$ 01,00");
-        boleto.setInstrucao5("PARA PAGAMENTO 5 até 05/xx/xxxx COBRAR O VALOR DE: R$ 02,00");
-        boleto.setInstrucao6("PARA PAGAMENTO 6 até 06/xx/xxxx COBRAR O VALOR DE: R$ 03,00");
-        boleto.setInstrucao7("PARA PAGAMENTO 7 até xx/xx/xxxx COBRAR O VALOR QUE VOCÊ QUISER!");
-        boleto.setInstrucao8("APÓS o Vencimento, Pagável Somente na Rede X.");   
+        boleto.setLocalPagamento(BoletoView.LocalPagamento);
+        boleto.setInstrucaoAoSacado(BoletoView.InstrucaoSacado);
+        boleto.setInstrucao1(BoletoView.Instrucao1);
+        boleto.setInstrucao2(BoletoView.Instrucao2);
+        boleto.setInstrucao3(BoletoView.Instrucao3);
+        boleto.setInstrucao4(BoletoView.Instrucao4);
+        boleto.setInstrucao5(BoletoView.Instrucao5);
+        boleto.setInstrucao6(BoletoView.Instrucao6);
+        boleto.setInstrucao7(BoletoView.Instrucao7);
+        boleto.setInstrucao8(BoletoView.Instrucao8);   
         
         BoletoViewer boletoViewer = new BoletoViewer(boleto);
 
@@ -492,6 +500,16 @@ public class MainView extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+        
+        
+        BoletoView.setVisible(true);
+        BoletoView.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        BoletoView.setIconImage(new ImageIcon(getClass().getResource("Icon.png")).getImage());
+        
+        
+    }//GEN-LAST:event_jToggleButton5ActionPerformed
 
     /**
      * @param args the command line arguments
